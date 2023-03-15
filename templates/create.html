@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Message {% endblock %}</h1>
+    <form method="post">
+
+        <label for="Date">Date</label>
+        <input type="date" name="date"
+               placeholder="Message title"
+               value="{{ request.form['date'] }}"></input>
+        <br>
+
+        <label for="Cost">Cost</label>
+        <input type="number" name="cost"
+               placeholder="cost"
+               value="{{ request.form['cost'] }}"></input>
+        <br>
+<!-- 
+        <label for="content">Message Content</label>
+        <br>
+        <textarea name="content"
+                  placeholder="Message content"
+                  rows="15"
+                  cols="60"
+                  >{{ request.form['content'] }}</textarea>
+        <br> -->
+
+        <label for="type">Type</label>
+        <select id="type" name="type">
+            {% for type in types %}
+            <!-- <h3>{{ type }}</h3> -->
+            <option value={{ type }}>{{ type }}</option>
+            {% endfor %}
+            >{{ request.form['type'] }}
+        </select>
+        <br>
+
+        <label for="Amount">Amount</label>
+        <input type="number" name="amount"
+               placeholder="amount"
+               value="{{ request.form['amount'] }}"></input>
+        <br>
+
+        <label for="comments">Comments</label>
+        <br>
+        <textarea name="comments"
+                  placeholder="comments"
+                  rows="15"
+                  cols="60"
+                  >{{ request.form['comments'] }}</textarea>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
